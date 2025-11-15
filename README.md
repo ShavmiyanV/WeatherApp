@@ -1,16 +1,26 @@
-# wireless_programming
+# Wireless Programming – Personalized Weather Dashboard
 
-A new Flutter project.
+A Flutter assignment that turns a student index (e.g., `194174B`) into latitude/longitude, queries the [Open-Meteo](https://open-meteo.com/) API, and displays current weather data with offline caching.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- Text input for the student index (prefilled, editable) with instant coordinate preview using the rules:
+	- `lat = 5 + firstTwo / 10`
+	- `lon = 79 + nextTwo / 10`
+- Fetch button that shows a loading indicator, calls Open-Meteo, and renders temperature, wind speed, raw weather code, computed coordinates, request URL, and the device-side last updated time.
+- Friendly error handling plus automatic reuse of the last successful response via `shared_preferences`, marked with a `(cached)` chip whenever offline data is shown.
 
-A few resources to get you started if this is your first Flutter project:
+## Run It
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```bash
+flutter pub get
+flutter run
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Tests
+
+```bash
+flutter test
+```
+
+The widget test simply verifies that the dashboard scaffolding (index field, coordinate cards, fetch button) renders correctly with mocked preferences.

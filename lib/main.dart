@@ -148,7 +148,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
       if (!mounted) return;
       setState(() {
         _errorMessage =
-            'Unable to reach Open-Meteo. Showing cached data if available.';
+            '⚠️ No connection detected. We can’t load the weather right now. Check your internet and refresh.';
         _showingCached = _result != null;
       });
     } finally {
